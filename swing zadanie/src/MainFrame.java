@@ -98,6 +98,9 @@ public class MainFrame extends JFrame {
 	}
 	@Override
 	public void paint(Graphics g) {
+		
+		super.paintComponents(g);
+		
 		Graphics2D g2 = (Graphics2D)g;
 		g2.setColor(new Color(red,green,blue));
 		paintLine(g2);
