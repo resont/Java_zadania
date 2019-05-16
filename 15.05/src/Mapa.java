@@ -22,14 +22,14 @@ public class Mapa {
 				
 				
 				
-//				for (String klucz: osobyMap.keySet()) {
-//					System.out.println(klucz);
-//				}
-//				
-//				
-//				for (Osoba os: osobyMap.values()) {
-//					System.out.println(os);
-//				}
+				for (String klucz: osobyMap.keySet()) {
+					System.out.println(klucz);
+				}
+				
+				
+				for (Osoba os: osobyMap.values()) {
+					System.out.println(os);
+				}
 				
 			
 
