@@ -1,4 +1,3 @@
-package source;
 
 
 public class LambdaMain {

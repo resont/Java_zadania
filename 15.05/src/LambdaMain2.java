@@ -1,7 +1,5 @@
-package source;
 
-
-public class LambdaMain {
+public class LambdaMain2 {
 
 	public static void main(String[] args) throws NotSameSizeArrays {
 		int[] a = {1,2,3,4,5}, b = {4,5,6,7,8};

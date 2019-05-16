@@ -1,46 +1,36 @@
-package source;
 
 import java.time.LocalDate;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Objects;
 import java.util.Set;
 
-public class HashDeepCopy {
+public class HashShallowCopy {
 
-	public static void main(String[] args) throws CloneNotSupportedException {
-		Set<Czlowieczek> ludzie = new HashSet<>();
-		ludzie.add(new Czlowieczek("Wiesiek", LocalDate.of(2000, 1, 2)));
-		ludzie.add(new Czlowieczek("Czesiek", LocalDate.of(2000, 1, 2)));
-		
-		
-		Set<Czlowieczek> ludzieDwa = new HashSet<>();
-		Iterator<Czlowieczek> i = ludzie.iterator();
-		while (i.hasNext()) {
-			ludzieDwa.add((Czlowieczek)i.next().clone());
-		}
+	public static void main(String[] args) {
+		Set<Czlowiek> ludzie = new HashSet<>();
+		ludzie.add(new Czlowiek("Wiesiek", LocalDate.of(2000, 1, 2)));
+		ludzie.add(new Czlowiek("Czesiek", LocalDate.of(2000, 1, 2)));
 		
 		ludzie.forEach(System.out::println);
+		
+		Set<Czlowiek> ludzieDwa = new HashSet<>(ludzie);
 		ludzieDwa.forEach(System.out::println);
 		
-		
-		System.out.println("\nPo zmianie");
-		for (Czlowieczek c: ludzie) {
+		for (Czlowiek c: ludzie) {
 			c.setDate(LocalDate.of(2001, 1, 2));
 		}
 		
 		ludzie.forEach(System.out::println);
 		ludzieDwa.forEach(System.out::println);
-		
 	}
 
 }
 
-class Czlowieczek implements Cloneable {
+class Czlowiek {
 	private String imie;
 	private LocalDate dataUr;
 	
-	public Czlowieczek(String imie,LocalDate dataUr) {
+	public Czlowiek(String imie,LocalDate dataUr) {
 		super();
 		this.imie = imie;
 		this.dataUr = dataUr;
@@ -70,13 +60,6 @@ class Czlowieczek implements Cloneable {
 		
 //		Czlowiek o = (Czlowiek)arg0;
 		return this.imie.equals(imie) && this.dataUr.equals(dataUr);
-		
-	}
-	
-	@Override
-	protected Object clone() throws CloneNotSupportedException {
-		return super.clone();
-		
 	}
 
 }
